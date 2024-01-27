@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/clientes")
 public class ClienteResource {
 
     @Autowired
@@ -21,7 +21,7 @@ public class ClienteResource {
     @Autowired
     private ModelMapper mapper;
 
-    @PostMapping("/clientes")
+    @PostMapping
     public ResponseEntity<Long> salvarCliente(@RequestBody @Valid ClienteRequest clienteRequest) {
 
         var clienteDto = mapper.map(clienteRequest, ClienteDto.class);
@@ -31,33 +31,33 @@ public class ClienteResource {
         return ResponseEntity.ok().body(clienteId);
     }
 
-    @GetMapping("/clientes")
+    @GetMapping
     public ResponseEntity<List<ClienteDto>> listar() {
         var list = this.clienteService.listar();
 
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping("/clientes/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> buscarId(@PathVariable Long id) {
         var obj = clienteService.buscarId(id);
 
         return ResponseEntity.ok().body(obj);
     }
 
-    @DeleteMapping("/clientes/{id}")
+    @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
         clienteService.excluir(id);
     }
 
-    @PutMapping("/clientes")
+    @PutMapping
     public ResponseEntity<Long> atualizar(@RequestBody ClienteDto clienteDto) {
         var clienteAtualizado = clienteService.alterar(clienteDto);
 
        return ResponseEntity.ok().body(clienteAtualizado);
     }
 
-    @GetMapping("/clientes/buscarnome/{nome}")
+    @GetMapping("/buscarnome/{nome}")
     public ResponseEntity<?> buscarNome(@PathVariable String nome) {
         List<ClienteResponse> clientesNome = clienteService.buscarNome(nome);
 
