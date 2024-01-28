@@ -1,4 +1,4 @@
-package com.api.desafio.entrypoint.cliente;
+package com.api.desafio.entrypoint.model.cliente;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.validation.constraints.Email;

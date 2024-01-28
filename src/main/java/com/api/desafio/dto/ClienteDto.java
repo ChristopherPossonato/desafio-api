@@ -1,6 +1,5 @@
 package com.api.desafio.dto;
 
-import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,5 +19,7 @@ public class ClienteDto implements Serializable {
     private String email;
     private String telefone;
     private String cep;
+    private EnderecoDto endereco;
+
 
 }

@@ -1,7 +1,7 @@
-package com.api.desafio.adapter.viacep;
+package com.api.desafio.adapter.viacep.impl;
 
-import com.api.desafio.adapter.ConsultaCepAdapter;
-import com.api.desafio.dto.Endereco;
+import com.api.desafio.adapter.viacep.ConsultaCepAdapter;
+import com.api.desafio.dto.EnderecoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -16,11 +16,11 @@ public class ConsultaCepAdapterImpl implements ConsultaCepAdapter {
     private RestTemplate restTemplate;
 
     @Override
-    public Endereco execute(String cep) {
+    public EnderecoDto execute(String cep) {
         var url = viaCepUrl + cep + "/json/";
 
         try {
-            return restTemplate.getForObject(url, Endereco.class);
+            return restTemplate.getForObject(url, EnderecoDto.class);
         } catch (Exception e) {
 
             return null;

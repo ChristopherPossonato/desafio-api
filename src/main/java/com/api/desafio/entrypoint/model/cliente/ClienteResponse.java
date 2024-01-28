@@ -1,10 +1,12 @@
-package com.api.desafio.entrypoint.cliente;
+package com.api.desafio.entrypoint.model.cliente;
 
-import com.api.desafio.dto.Endereco;
+import com.api.desafio.dto.EnderecoDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.OptionalDouble;
 
 @Data
 @Builder
@@ -16,7 +18,8 @@ public class ClienteResponse {
     private String sobrenome;
     private String email;
     private String telefone;
-    private Endereco endereco;
+
+    private EnderecoResponse endereco;
 
 
 }
